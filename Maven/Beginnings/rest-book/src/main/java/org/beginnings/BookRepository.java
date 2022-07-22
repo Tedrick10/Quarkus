@@ -1,18 +1,23 @@
 package org.beginnings;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.PathParam;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
 public class BookRepository {
+    // @ConfigProperty(name = "books.genre", defaultValue = "Sci-Fi")
+    @ConfigProperty(name = "books.genre", defaultValue = "Sci-Fi")
+    String genre;
+
     public List<Book> getAllBooks() {
         return List.of(
-                new Book(1, "Book 001", "Author 001", 2012, "IT"),
-                new Book(2, "Book 002", "Author 002", 2013, "IT"),
-                new Book(3, "Book 003", "Author 003", 2014, "IT"),
-                new Book(4, "Book 004", "Author 004", 2015, "IT")
+                new Book(1, "Book 001", "Author 001", 2012, genre),
+                new Book(2, "Book 002", "Author 002", 2013, genre),
+                new Book(3, "Book 003", "Author 003", 2014, genre),
+                new Book(4, "Book 004", "Author 004", 2015, genre)
         );
     }
 
