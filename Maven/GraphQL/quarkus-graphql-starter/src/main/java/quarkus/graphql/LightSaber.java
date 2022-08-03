@@ -1,2 +1,5 @@
-package quarkus.graphql;public class LightSaber {
+package quarkus.graphql;
+
+enum LightSaber {
+    RED, BLUE, GREEN, PURPLE
 }
